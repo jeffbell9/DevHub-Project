@@ -1,0 +1,65 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>DevHub Project</title>
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.2/jquery.modal.min.css" />-->
+        <link rel="stylesheet" href="./styles.css" />
+       
+        
+    </head>
+    <body>
+        <div id="container">
+            <form>
+                <p>
+                <label for="businessName">Business Name</label>
+                <input type="text" name="businessName" id="businessName" value="DevHub"/>
+                </p>
+
+                <p>
+                <label for="street">Street</label>
+                <input type="text" name="street" id="street" value="2101 4th Ave"/>
+                </p>
+
+                <p>
+                <label for="city">City</label>
+                <input type="text" name="city" id="city" value="Seattle"/>
+                </p>
+
+                <p>
+                <label for="state">State</label>
+                <input type="text" name="state" id="state" value="WA"/>
+                </p>
+                
+                <p>
+                <label for="postalCode">Postal Code</label>
+                <input type="text" name="postalCode" id="postalCode" value="98121"/>
+                </p>
+
+                <p>
+                <label for="country">Country</label>
+                <input type="text" name="country" id="country" value="USA"/>
+                </p>
+
+                <p>
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" name="phoneNumber" id="phoneNumber" value="206-441-4399"/>
+                </p>
+
+                <button type="submit">Submit</button>
+            </form>
+            <iframe id="previewSite" name="previewSite" height="469px" src="/live-preview.html">
+                <p>Your browser does not support iframes</p>
+            </iframe>
+        </div>
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script src="./app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.2/jquery.modal.min.js"></script>
+        
+    </body>
+</html>
