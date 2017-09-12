@@ -1,24 +1,30 @@
+//Hide iframe on startup or refresh
 $('#previewSite').hide();
 
+//Hide iframe on close button click
 $('#close').on("click", event => {
     $('#previewSite', window.parent.document).hide();
 })
 
+//Console log JSON object on export button click
 $('#export').on("click", event => {
     let queryString = window.location.search;
     let noQuestion = queryString.substr(6);
     console.log(decodeURI(noQuestion));
 })
 
+//Form submit
 $( "form" ).on( "submit", function( event ) {
     event.preventDefault();
 
+    //Validate all input fields have values
     var emptyInputs = $(this).parent().find('input[type="text"]').filter(function() { return $(this).val() == ""; });
    
     if (emptyInputs.length) {
         alert('Please complete all fields.');
     } else {
 
+        //Launch modal
         $('#previewSite').modal();
 
         let info = {
@@ -33,8 +39,10 @@ $( "form" ).on( "submit", function( event ) {
 
         let infoJSON = JSON.stringify(info);
 
+        //Modify iframe src attribute to include site parameter
         $('#previewSite').attr('src', 'http://localhost:3000/live-preview/?site=' + infoJSON);
 
+        //Get data from query string
         $.get('/business.json', info, data => {
             let dataToPass = {theBusiness: data.data.businessName,
                                 theStreet: data.data.street,
@@ -44,7 +52,8 @@ $( "form" ).on( "submit", function( event ) {
                                 theCountry: data.data.country,
                                 thePhoneNumber: data.data.phoneNumber
                                 };
-
+            
+            //Insert text on iframe load
             $('#previewSite').on("load", dataToPass, event => {
                 const frame = document.getElementById("previewSite");
                 const theDocument = frame.contentWindow.document;
