@@ -11,7 +11,7 @@ app.get('/business.json', (req, res) => {
     })
 })
 
-app.get('/live-preview/', (req, res) => {
+app.get('/live-preview', (req, res) => {
     res.sendFile(path.join(__dirname+'/public/live-preview.html'));
 })
 

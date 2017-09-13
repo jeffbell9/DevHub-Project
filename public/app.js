@@ -1,16 +1,11 @@
-//Hide iframe on startup or refresh
-$('#previewSite').hide();
-
-//Hide iframe on close button click
+//Close modal on close button click
 $('#close').on("click", event => {
-    $('#previewSite', window.parent.document).hide();
+    $('#myModal').modal('hide');
 })
 
 //Console log JSON object on export button click
-$('#export').on("click", event => {
-    let queryString = window.location.search;
-    let noQuestion = queryString.substr(6);
-    console.log(decodeURI(noQuestion));
+$('#export').on("click", function( event ) {
+    console.log($('#previewSite').attr('src').substr(41));
 })
 
 //Form submit
@@ -25,7 +20,7 @@ $( "form" ).on( "submit", function( event ) {
     } else {
 
         //Launch modal
-        $('#previewSite').modal();
+        $('#myModal').modal();
 
         let info = {
             businessName: $('#businessName').val(),
@@ -72,6 +67,8 @@ $( "form" ).on( "submit", function( event ) {
                 thePostalCodeElement.innerHTML = event.data.thePostalCode;
                 theCountryElement.innerHTML = event.data.theCountry;
                 thePhoneNumberElement.innerHTML = event.data.thePhoneNumber;
+
+                
             })
         })
     }
