@@ -28,3 +28,7 @@ label {
 #submit {
     margin-top: 30px;
 }
+
+iframe, object, embed {
+    max-width: 100%;
+}
