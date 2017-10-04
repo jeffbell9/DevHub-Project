@@ -50,14 +50,14 @@ $( "form" ).on( "submit", function( event ) {
             
             //Insert text on iframe load
             $('#previewSite').on("load", dataToPass, event => {
-                const frame = document.getElementById("previewSite");
-                const site = frame.contentWindow.document;
-                businessName = site.getElementById('lpBusiness');
-                street = site.getElementById('lpStreet');
-                city = site.getElementById('lpCity');
-                state = site.getElementById('lpState');
-                postalCode = site.getElementById('lpPostalCode');
-                country = site.getElementById('lpCountry');
+                const frame = document.getElementById("previewSite"),
+                       site = frame.contentWindow.document,
+                businessName = site.getElementById('lpBusiness'),
+                street = site.getElementById('lpStreet'),
+                city = site.getElementById('lpCity'),
+                state = site.getElementById('lpState'),
+                postalCode = site.getElementById('lpPostalCode'),
+                country = site.getElementById('lpCountry'),
                 phoneNumber = site.getElementById('lpPhoneNumber');
 
                 businessName.innerHTML = event.data.businessName;
