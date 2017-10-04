@@ -39,34 +39,34 @@ $( "form" ).on( "submit", function( event ) {
 
         //Get data from query string
         $.get('/business.json', info, data => {
-            let dataToPass = {theBusiness: data.data.businessName,
-                                theStreet: data.data.street,
-                                theCity: data.data.city,
-                                theState: data.data.state,
-                                thePostalCode: data.data.postalCode,
-                                theCountry: data.data.country,
-                                thePhoneNumber: data.data.phoneNumber
+            let dataToPass = {businessName: data.data.businessName,
+                                street: data.data.street,
+                                city: data.data.city,
+                                state: data.data.state,
+                                postalCode: data.data.postalCode,
+                                country: data.data.country,
+                                phoneNumber: data.data.phoneNumber
                                 };
             
             //Insert text on iframe load
             $('#previewSite').on("load", dataToPass, event => {
                 const frame = document.getElementById("previewSite");
-                const theDocument = frame.contentWindow.document;
-                theBusinessElement = theDocument.getElementById('lpBusiness');
-                theStreetElement = theDocument.getElementById('lpStreet');
-                theCityElement = theDocument.getElementById('lpCity');
-                theStateElement = theDocument.getElementById('lpState');
-                thePostalCodeElement = theDocument.getElementById('lpPostalCode');
-                theCountryElement = theDocument.getElementById('lpCountry');
-                thePhoneNumberElement = theDocument.getElementById('lpPhoneNumber');
+                const site = frame.contentWindow.document;
+                businessName = site.getElementById('lpBusiness');
+                street = site.getElementById('lpStreet');
+                city = site.getElementById('lpCity');
+                state = site.getElementById('lpState');
+                postalCode = site.getElementById('lpPostalCode');
+                country = site.getElementById('lpCountry');
+                phoneNumber = site.getElementById('lpPhoneNumber');
 
-                theBusinessElement.innerHTML = event.data.theBusiness;
-                theStreetElement.innerHTML = event.data.theStreet;
-                theCityElement.innerHTML = event.data.theCity + ",";
-                theStateElement.innerHTML = event.data.theState;
-                thePostalCodeElement.innerHTML = event.data.thePostalCode;
-                theCountryElement.innerHTML = event.data.theCountry;
-                thePhoneNumberElement.innerHTML = event.data.thePhoneNumber;
+                businessName.innerHTML = event.data.businessName;
+                street.innerHTML = event.data.street;
+                city.innerHTML = event.data.city + ",";
+                state.innerHTML = event.data.state;
+                postalCode.innerHTML = event.data.postalCode;
+                country.innerHTML = event.data.country;
+                phoneNumber.innerHTML = event.data.phoneNumber;
 
                 
             })
